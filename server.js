@@ -13,7 +13,10 @@ app.use("/api/items", require("./routes/itemRoute"));
 const port = process.env.PORT || 5000;
 
 // Getting mongo uri from the keys folder
-const url = process.env.MONGO_URI;
+const url =
+  process.env.NODE_ENV === "production"
+    ? process.env.MONGO_URI
+    : process.env.MONGO_DEV_URI;
 
 // Connect to mongodb using mongoose
 mongoose
