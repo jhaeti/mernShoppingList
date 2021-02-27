@@ -6,7 +6,7 @@ const User = require("../models/user");
 
 const route = express.Router();
 
-route.post("/", (req, res) => {
+route.post("/register", (req, res) => {
   const { name, email, password } = req.body;
 
   if (!name || !email || !password) {
