@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.block {
+  width: 50%;
+  margin-right: 2rem;
+}

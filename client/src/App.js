@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import ShoppingList from "./components/ShoppingList";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Register from "./components/Register";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Navbar />
+          <Register />
           <ShoppingList />
         </div>
       </Provider>
