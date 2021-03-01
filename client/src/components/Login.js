@@ -1,12 +1,11 @@
 import React, { Component } from "react";
-import { register } from "../actions/userActions";
 import { connect } from "react-redux";
+import { login } from "../actions/userActions";
 
-export class Register extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: "",
       email: "",
       password: "",
       msg: null,
@@ -20,11 +19,12 @@ export class Register extends Component {
 
     this.onSubmit = (e) => {
       e.preventDefault();
-      const { name, email, password } = this.state;
-      const newUser = { name, email, password };
-      console.log(newUser);
-      //   CALL YOUR ACTION BELOW THIS LINE
-      this.props.register(newUser);
+      const { email, password } = this.state;
+      const user = { email, password };
+      console.log(user);
+
+      // Attemp to login a user
+      this.props.login(user);
     };
   }
 
@@ -33,29 +33,19 @@ export class Register extends Component {
     isAuthenticated !== prevProps.isAuthenticated &&
       isAuthenticated &&
       this.setState({
-        name: "",
         email: "",
         password: "",
         msg: null,
       });
   }
+
   render() {
     const { isAuthenticated } = this.props;
+
     return (
       <div className="container mt-3">
         {!isAuthenticated && (
           <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <input
-                name="name"
-                onChange={this.onChange}
-                value={this.state.name}
-                type="name"
-                className="form-control"
-                placeholder="Name"
-                aria-describedby="emailHelp"
-              />
-            </div>
             <div className="form-group">
               <input
                 name="email"
@@ -78,9 +68,9 @@ export class Register extends Component {
               />
             </div>
             <button type="submit" className="btn btn-primary block">
-              Register
+              Login
             </button>
-            <a href="#">Already have an account</a>
+            <a href="#">Create new account</a>
           </form>
         )}
       </div>
@@ -89,7 +79,9 @@ export class Register extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { isAuthenticated: state.auth.isAuthenticated };
+  return {
+    isAuthenticated: state.auth.isAuthenticated,
+  };
 };
 
-export default connect(mapStateToProps, { register })(Register);
+export default connect(mapStateToProps, { login })(Login);

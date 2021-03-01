@@ -43,6 +43,7 @@ route.post("/register", (req, res) => {
     });
   }
 });
+
 route.post("/login", (req, res) => {
   const { email, password } = req.body;
 
@@ -66,7 +67,7 @@ route.post("/login", (req, res) => {
               }
             );
           } else {
-            res.json({ msg: "Invalid credentials" });
+            res.status(400).json({ msg: "Invalid credentials" });
           }
         });
       }
