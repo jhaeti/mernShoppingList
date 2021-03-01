@@ -1,6 +1,7 @@
 import {
   LOAD_USER_FAIL,
   LOAD_USER_SUCCESS,
+  LOGOUT_SUCCESS,
   REGISTER_FAIL,
   REGISTER_SUCCESS,
 } from "../actions/userActions";
@@ -30,6 +31,7 @@ export const authReducer = (state = initialState, action) => {
         user: action.payload.user,
         msg: null,
       };
+    case LOGOUT_SUCCESS:
     case LOAD_USER_FAIL:
     case REGISTER_FAIL:
       return {
