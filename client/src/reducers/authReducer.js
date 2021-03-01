@@ -1,4 +1,9 @@
-import { REGISTER_FAIL, REGISTER_SUCCESS } from "../actions/userActions";
+import {
+  LOAD_USER_FAIL,
+  LOAD_USER_SUCCESS,
+  REGISTER_FAIL,
+  REGISTER_SUCCESS,
+} from "../actions/userActions";
 
 const initialState = {
   isAuthenticated: false,
@@ -9,6 +14,13 @@ const initialState = {
 
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
+    case LOAD_USER_SUCCESS:
+      return {
+        ...state,
+        isAuthenticated: true,
+        user: action.payload,
+        msg: null,
+      };
     case REGISTER_SUCCESS:
       localStorage.setItem("token", action.payload.token);
       return {
@@ -16,7 +28,9 @@ export const authReducer = (state = initialState, action) => {
         isAuthenticated: true,
         token: action.payload.token,
         user: action.payload.user,
+        msg: null,
       };
+    case LOAD_USER_FAIL:
     case REGISTER_FAIL:
       return {
         isAuthenticated: false,
