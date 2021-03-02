@@ -4,7 +4,7 @@ export default class Alert extends Component {
   render() {
     return (
       <div className="alert alert-warning" role="alert">
-        {this.props.msg}
+        <div className="container">{this.props.msg}</div>
       </div>
     );
   }
