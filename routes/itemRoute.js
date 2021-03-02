@@ -16,8 +16,8 @@ route.get("/", (req, res) => {
 });
 
 // Sending an Item and sending it back in json
-route.post("/", (req, res) => {
-route.post("/", auth, (req, res) => { register-login
+route.post("/", auth, (req, res) => {
+  register - login;
   const { name } = req.body;
   const newItem = new Item({ name });
   newItem
@@ -27,9 +27,8 @@ route.post("/", auth, (req, res) => { register-login
 });
 
 // Deleting an Item
-route.delete("/:id", (req, res) => {
 route.delete("/:id", auth, (req, res) => {
-register-login
+  register - login;
   const { id } = req.params;
   Item.findById({ _id: id })
     .then((item) => {
