@@ -5,11 +5,8 @@ const Item = require("../models/item");
 
 const route = express.Router();
 
-<<<<<<< HEAD
-=======
 const auth = require("../middleware");
 
->>>>>>> register-login
 // Getting all items and sending it in json
 route.get("/", (req, res) => {
   Item.find()
@@ -19,11 +16,8 @@ route.get("/", (req, res) => {
 });
 
 // Sending an Item and sending it back in json
-<<<<<<< HEAD
 route.post("/", (req, res) => {
-=======
-route.post("/", auth, (req, res) => {
->>>>>>> register-login
+route.post("/", auth, (req, res) => { register-login
   const { name } = req.body;
   const newItem = new Item({ name });
   newItem
@@ -33,11 +27,9 @@ route.post("/", auth, (req, res) => {
 });
 
 // Deleting an Item
-<<<<<<< HEAD
 route.delete("/:id", (req, res) => {
-=======
 route.delete("/:id", auth, (req, res) => {
->>>>>>> register-login
+register-login
   const { id } = req.params;
   Item.findById({ _id: id })
     .then((item) => {

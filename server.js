@@ -9,11 +9,8 @@ app.use(express.json());
 
 // Pointing to routes file
 app.use("/api/items", require("./routes/itemRoute"));
-<<<<<<< HEAD
-=======
 app.use("/api/users", require("./routes/userRoute"));
 app.use("/api/auth", require("./routes/authRoute"));
->>>>>>> register-login
 
 const port = process.env.PORT || 5000;
 
@@ -24,17 +21,13 @@ const url =
     : process.env.MONGO_DEV_URI;
 
 // Connect to mongodb using mongoose
-<<<<<<< HEAD
-mongoose
-  .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
-=======
+mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set("useCreateIndex", true);
 mongoose
   .connect(url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
->>>>>>> register-login
   .then(() => console.log("MongoDb connected..."))
   .catch((err) => console.log(err));
 
