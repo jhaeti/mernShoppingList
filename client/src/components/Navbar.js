@@ -35,6 +35,7 @@ class Navbar extends Component {
             <a className="navbar-brand" href="index.html">
               MyList
             </a>
+
             <button
               type="button"
               className="btn btn-outline-light"
@@ -46,6 +47,7 @@ class Navbar extends Component {
             </button>
           </div>
         </nav>
+
         {this.state.isOpen && (
           <form style={formStyle} onSubmit={this.onSubmit}>
             <div className="form-group">
@@ -75,4 +77,10 @@ const formStyle = {
   background: "#5f5f5f",
 };
 
-export default connect(null, { addItem })(Navbar);
+const mapStateToProps = (state) => {
+  return {
+    auth: state.auth,
+  };
+};
+
+export default connect(mapStateToProps, { addItem })(Navbar);

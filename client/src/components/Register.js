@@ -80,7 +80,9 @@ export class Register extends Component {
             <button type="submit" className="btn btn-primary block">
               Register
             </button>
-            <a href="#">Already have an account</a>
+            <a href="#" onClick={this.props.showRegister}>
+              Already have an account
+            </a>
           </form>
         )}
       </div>

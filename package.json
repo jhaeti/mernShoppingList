@@ -1,6 +1,6 @@
 {
   "name": "nodeexpress",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "testing knowledge on api with node, express and mongodb",
   "main": "server.js",
   "scripts": {

@@ -70,7 +70,9 @@ class Login extends Component {
             <button type="submit" className="btn btn-primary block">
               Login
             </button>
-            <a href="#">Create new account</a>
+            <a href="#" onClick={this.props.showRegister}>
+              Create new account
+            </a>
           </form>
         )}
       </div>
