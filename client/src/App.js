@@ -9,6 +9,7 @@ import Register from "./components/Register";
 import { loadUser } from "./actions/userActions";
 import Logout from "./components/Logout";
 import Login from "./components/Login";
+import RegisterAndLogin from "./components/RegisterAndLogin";
 
 class App extends Component {
   componentDidMount() {
@@ -19,9 +20,10 @@ class App extends Component {
       <Provider store={store}>
         <div className="App">
           <Navbar />
-          <Register />
           <Logout />
-          <Login />
+          {/* <Register />
+          <Login /> */}
+          <RegisterAndLogin />
           <ShoppingList />
         </div>
       </Provider>
